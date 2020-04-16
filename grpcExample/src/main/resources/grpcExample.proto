@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_package = "com.claro.ws.grpc.impl";
+
+service UserAuth {
+	
+	rpc LogIn(LoginRequest) returns (ApiResponse);
+	rpc LogOut(Empty) returns (ApiResponse);
+}
+
+message LoginRequest {
+	string username = 1;
+	string password = 2;
+}
+
+message ApiResponse {
+	int32 code = 1;
+	string message = 2;
+}
+
+message Empty {}
